@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8203F4A29084B6700B13385 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8203F4929084B6700B13385 /* UserDefaultsStorage.swift */; };
+		A8203F4C290863A300B13385 /* UserDefaultsSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8203F4B290863A300B13385 /* UserDefaultsSerializer.swift */; };
 		A8B4E9762908421B0050149C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B4E9752908421B0050149C /* AppDelegate.swift */; };
 		A8B4E9782908421B0050149C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B4E9772908421B0050149C /* SceneDelegate.swift */; };
 		A8B4E97A2908421B0050149C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B4E9792908421B0050149C /* ViewController.swift */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A8203F4929084B6700B13385 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
+		A8203F4B290863A300B13385 /* UserDefaultsSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsSerializer.swift; sourceTree = "<group>"; };
 		A8B4E9722908421B0050149C /* UsefulPractics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UsefulPractics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8B4E9752908421B0050149C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8B4E9772908421B0050149C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +39,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A8203F4729084B4300B13385 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A8203F4829084B4D00B13385 /* Storage */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A8203F4829084B4D00B13385 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				A8203F4929084B6700B13385 /* UserDefaultsStorage.swift */,
+				A8203F4B290863A300B13385 /* UserDefaultsSerializer.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		A8B4E9692908421B0050149C = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +75,7 @@
 		A8B4E9742908421B0050149C /* UsefulPractics */ = {
 			isa = PBXGroup;
 			children = (
+				A8203F4729084B4300B13385 /* Helpers */,
 				A8B4E9752908421B0050149C /* AppDelegate.swift */,
 				A8B4E9772908421B0050149C /* SceneDelegate.swift */,
 				A8B4E9792908421B0050149C /* ViewController.swift */,
@@ -135,6 +157,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8B4E97A2908421B0050149C /* ViewController.swift in Sources */,
+				A8203F4A29084B6700B13385 /* UserDefaultsStorage.swift in Sources */,
+				A8203F4C290863A300B13385 /* UserDefaultsSerializer.swift in Sources */,
 				A8B4E9762908421B0050149C /* AppDelegate.swift in Sources */,
 				A8B4E9782908421B0050149C /* SceneDelegate.swift in Sources */,
 			);
