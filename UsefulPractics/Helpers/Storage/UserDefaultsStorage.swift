@@ -8,18 +8,18 @@
 import Foundation
 
 @propertyWrapper
-final class UserDefaultsStorage<Value: Codable> {
+struct UserDefaultsStorage<Value: Codable> {
     // MARK: Properties
     let storage: UserDefaults
     let key: String
     let defaultValue: Value
     let serializer: UserDefaultsSerializerInterface.Type?
-    var lastValue: Value?  // Prevent reading from UserDefaults each time
+    var lastFetchedValue: Value?
     
     var wrappedValue: Value {
         get {
-            guard lastValue == nil else {
-                return lastValue ?? defaultValue
+            guard lastFetchedValue == nil else {
+                return lastFetchedValue ?? defaultValue
             }
             
             let storedValue = UserDefaults.standard.value(forKey: key)
@@ -32,7 +32,7 @@ final class UserDefaultsStorage<Value: Codable> {
         }
         set {
             defer {
-                lastValue = newValue
+                lastFetchedValue = newValue
             }
             
             guard let serializer else {
@@ -53,22 +53,22 @@ final class UserDefaultsStorage<Value: Codable> {
         storage: UserDefaults = .standard,
         key: String,
         defaultValue: Value,
-        serializer: UserDefaultsSerializerInterface.Type? = nil
+        serializer: UserDefaultsObjectSerializer? = nil
     ) {
         self.storage = storage
         self.key = key
         self.defaultValue = defaultValue
-        self.lastValue = nil
-        self.serializer = serializer
+        self.lastFetchedValue = nil
+        self.serializer = serializer?.serializerType
     }
 }
 
 // MARK: - ExpressibleByNilLiteral
 extension UserDefaultsStorage where Value: ExpressibleByNilLiteral {
-    convenience init(
+    init(
         storage: UserDefaults = .standard,
         key: String,
-        serializer: UserDefaultsSerializerInterface.Type? = nil
+        serializer: UserDefaultsObjectSerializer? = nil
     ) {
         self.init(
             storage: storage,
